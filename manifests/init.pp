@@ -22,7 +22,7 @@ class remi($extras = 0) {
         owner  => 'root',
         group  => 'root',
         mode   => '0644',
-        source => "puppet:///modules/rpmforge/RPM-GPG-KEY-remi",
+        source => "puppet:///modules/remi/RPM-GPG-KEY-remi",
     }
     
     epel::rpm_gpg_key{ "remi":
