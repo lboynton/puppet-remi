@@ -1,14 +1,16 @@
 # Add remi repo
-# extras    - Integer for enabling/disabling remi-extras repo
-# php55     - Integer for enabling/disabling remi-php55 repo
+# enabled   - Integer for enabling remi repo (defaults to enabled)
+# extras    - Integer for enabling/disabling remi-extras repo (defaults to disabled)
+# php55     - Integer for enabling/disabling remi-php55 repo (defaults to disabled)
 class remi(
-    $extras = 0,
-    $php55  = 0
+    $enabled    = 1,
+    $extras     = 0,
+    $php55      = 0
 ) {
     yumrepo { 'remi':
         baseurl     => 'http://rpms.famillecollet.com/enterprise/$releasever/remi/$basearch/',
         mirrorlist  => 'http://rpms.famillecollet.com/enterprise/$releasever/remi/mirror',
-        enabled     => 1,
+        enabled     => $enabled,
         gpgcheck    => 1,
         gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi',
         descr       => 'Les RPM de remi pour Enterprise Linux $releasever - $basearch'

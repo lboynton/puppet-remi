@@ -1,3 +1,6 @@
+2013-12-28 Lee Boynton <lee@lboynton.com> 0.0.2
+Added parameter to control enabled flag
+
 2013-12-23 Jeremy Nederhoff <jeremy.nederhoff@gmail.com> 0.0.2
 Added remi-php55 repo
 
