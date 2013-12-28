@@ -1,4 +1,10 @@
-class remi($extras = 0, $php55 = 0) {
+# Add remi repo
+# extras    - Integer for enabling/disabling remi-extras repo
+# php55     - Integer for enabling/disabling remi-php55 repo
+class remi(
+    $extras = 0,
+    $php55  = 0
+) {
     yumrepo { 'remi':
         baseurl     => 'http://rpms.famillecollet.com/enterprise/$releasever/remi/$basearch/',
         mirrorlist  => 'http://rpms.famillecollet.com/enterprise/$releasever/remi/mirror',
@@ -26,15 +32,15 @@ class remi($extras = 0, $php55 = 0) {
         descr       => 'Les RPM de remi en test pour Enterprise Linux $releasever - $basearch'
     }
 
-    file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-remi":
+    file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-remi':
         ensure => present,
         owner  => 'root',
         group  => 'root',
         mode   => '0644',
-        source => "puppet:///modules/remi/RPM-GPG-KEY-remi",
+        source => 'puppet:///modules/remi/RPM-GPG-KEY-remi',
     }
 
-    epel::rpm_gpg_key{ "remi":
-        path => "/etc/pki/rpm-gpg/RPM-GPG-KEY-remi",
+    epel::rpm_gpg_key{ 'remi':
+        path => '/etc/pki/rpm-gpg/RPM-GPG-KEY-remi',
     }
 }
